@@ -3,10 +3,9 @@ with Ada.Integer_Text_IO;
 with Ada.Streams;                  use  Ada.Streams;
 with System.IO;
 
-
 package body DB is
 
-   procedure Print_Message (TM : in Raw_TM) is   
+   procedure Print_Message (TM : in Stream_Element_Array) is   
 
       Message_String : String (1 .. 255);
 
