@@ -5,7 +5,7 @@ with System.IO;
 
 package body DB is
 
-   procedure Print_Message (TM : in Stream_Element_Array) is   
+   procedure Print_Message (TM : Stream_Element_Array) is   
 
       Message_String : String (1 .. 255);
 
