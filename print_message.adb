@@ -6,7 +6,7 @@ with System.IO;
 
 package body DB is
 
-   procedure Print_Message (TM : in Stream_Element_Array) is   
+   procedure Store_Message (TM : in Stream_Element_Array) is   
 
       Message_String : String (1 .. 255);
 
@@ -25,9 +25,11 @@ package body DB is
    begin
 
       Message_String := To_String (TM);
+      
+      Q := Gnatcoll.SQL.SQL_Insert (Values => (Raw_telemetry.message = Raw_TM_String));
+      execute(DB, Q);
+      DB.commit;
 
-      System.IO.Put_Line (Message_String)
-
-   end Print_Message;
+   end Store_Message;
 
 end DB;
