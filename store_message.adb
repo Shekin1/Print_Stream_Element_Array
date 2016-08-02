@@ -3,6 +3,9 @@ with Ada.Integer_Text_IO;
 with Ada.Streams;                  use  Ada.Streams;
 with System.IO;
 
+with GNATCOLL.SQL.Sqlite;          use GNATCOLL.SQL.Sqlite;
+with GNATCOLL.SQL.Exec;            use GNATCOLL.SQL.Exec;
+with Database;                     use Database;
 
 package body DB is
 
@@ -16,7 +19,7 @@ package body DB is
          for I in Result'Range loop
             Result (I) :=
               Character'Val (Stream_Element'Pos
-                             (S (Stream_Element_Offset (I) + S'First - 1)));
+                             (S (Stream_Element_Offset (I) + S'First)));
             System.IO.Put_Line (Result);
          end loop;
          return Result;
